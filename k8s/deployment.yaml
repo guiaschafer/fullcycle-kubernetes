@@ -16,4 +16,4 @@ spec:
     spec: 
       containers:
         - name: "goserver"
-          image: "guischafer/hellogo:v2"
+          image: "guischafer/hellogo:v3"
