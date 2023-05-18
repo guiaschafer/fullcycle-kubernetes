@@ -2,18 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: "goserver"
-  labels: 
+  labels:
     app: "goserver"
 spec:
-  selector: 
+  selector:
     matchLabels:
       app: "goserver"
-  replicas: 2
+  replicas: 1
   template:
-    metadata: 
-      labels: 
+    metadata:
+      labels:
         app: "goserver"
-    spec: 
+    spec:
       containers:
         - name: "goserver"
-          image: "guischafer/hellogo:v3"
+          image: "guischafer/hellogo:v4"
+          envFrom:
+            - configMapRef: 
+                name: goserver-env
+          # env:
+          #   - name: NAME
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: NAME
+          #   - name: AGE
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: AGE
