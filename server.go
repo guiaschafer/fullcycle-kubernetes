@@ -43,7 +43,7 @@ func Secret(w http.ResponseWriter, r *http.Request) {
 }
 
 func Healthz(w http.ResponseWriter, r *http.Request) {
-	var duration = time.Since(startedAt)
+	duration := time.Since(startedAt)
 
 	if duration.Seconds() < 10 {
 		w.WriteHeader(500)
